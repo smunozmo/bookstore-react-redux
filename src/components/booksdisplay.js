@@ -14,47 +14,62 @@ const Books = () => {
 
   const AddBookCard = () => (
     <div>
-      {myBooks.map((book) => (
-        <div className="card" key={book.id}>
-          <div className="card-body">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <p>Action</p>
-                  <p>{book.title}</p>
-                  <p>{book.author}</p>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col">
-                        Comments
-                      </div>
-                      <div className="col">
-                        <button type="button" onClick={removeBookBtn} id={book.id} className="btn btn-primary">Remove</button>
-                      </div>
-                      <div className="col">
-                        Edit
+      {myBooks.map((book) => {
+        const randomNum = Math.floor(Math.random() * 100);
+        const barstyle = {
+          width: `${randomNum}%`,
+        };
+
+        return (
+          <div className="card" key={book.id}>
+            <div className="card-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <p className="fs-6 text-secondary">{book.genre}</p>
+                    <p className="fs-5 fw-bold">{book.title}</p>
+                    <p className="fs-5 text-primary">{book.author}</p>
+                    <div className="container p-0">
+                      <div className="row">
+                        <div className="col">
+                          Comments
+                        </div>
+                        <div className="col">
+                          <button type="button" onClick={removeBookBtn} id={book.id} className="buttonRemove">Remove</button>
+                        </div>
+                        <div className="col">
+                          Edit
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col">
-                  64% Completed
-                </div>
-                <div className="col">
-                  <p>Current chapter</p>
-                  <p>Chapter 17</p>
-                  <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
+                  <div className="col">
+                    {randomNum}
+                    % Completed
+                    <div className="progress">
+                      <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="bar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={barstyle} />
+                    </div>
+                  </div>
+                  <div className="col">
+                    <p>Current chapter</p>
+                    <p>
+                      Chapter&nbsp;
+
+                      {Math.floor(Math.random() * 100)}
+                    </p>
+                    <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 
   return (
-    <div className="container align-middle py-5">
+    <div className="container align-middle pt-5">
       <div className="container my-5 align-middle" id="formContainer">
         <div className="card">
           <div className="card-header">
