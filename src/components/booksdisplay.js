@@ -1,9 +1,19 @@
+/* eslint-disable */
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { removeBook } from '../redux/books/books';
 
 const Books = () => {
+  const {
+    id, title, author,
+  } = {
+      id: uuidv4(),
+      title: 'Jhon',
+      author: 'Foo',
+    };
+
   const dispatch = useDispatch();
 
   const removeBookBtn = (e) => {
@@ -30,40 +40,40 @@ const Books = () => {
             </div>
           </div>
           <div className="card-body">
-            <div className="card">
-              <div className="card-body">
+          <div className="card">
+        <div className="card-body">
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <p>Action</p>
+                <p>{title}</p>
+                <p>{author}</p>
                 <div className="container">
                   <div className="row">
                     <div className="col">
-                      <p>Action</p>
-                      <p>The Hunger Games</p>
-                      <p>Suzanne Collins</p>
-                      <div className="container">
-                        <div className="row">
-                          <div className="col">
-                            Comments
-                          </div>
-                          <div className="col">
-                            <button type="button" onClick={removeBookBtn} id="1" className="btn btn-primary">Remove</button>
-                          </div>
-                          <div className="col">
-                            Edit
-                          </div>
-                        </div>
-                      </div>
+                        Comments
                     </div>
                     <div className="col">
-                      64% Completed
+                      <button type="button" onClick={removeBookBtn} id={id} className="btn btn-primary">Remove</button>
                     </div>
                     <div className="col">
-                      <p>Current chapter</p>
-                      <p>Chapter 17</p>
-                      <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
+                        Edit
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="col">
+                64% Completed
+              </div>
+              <div className="col">
+                <p>Current chapter</p>
+                <p>Chapter 17</p>
+                <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import Books from './components/booksdisplay';
 import Categories from './redux/categories/categories';
 import ButtonAdd from './components/bookadd';
 import store from './redux/configureStore';
+import Loop from './components/loop';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
           <Route exact path="/">
             <Books />
             <ButtonAdd />
+            <Loop />
           </Route>
           <Route path="/categories">
             <Categories />
