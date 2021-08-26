@@ -1,24 +1,57 @@
-/* eslint-disable */
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeBook } from '../redux/books/books';
 
 const Books = () => {
-  const {
-    id, title, author,
-  } = {
-      id: uuidv4(),
-      title: 'Jhon',
-      author: 'Foo',
-    };
+  const myBooks = useSelector((state) => state.bookRedux);
 
   const dispatch = useDispatch();
 
   const removeBookBtn = (e) => {
     dispatch(removeBook(e.target));
   };
+
+  const AddBookCard = () => (
+    <div>
+      {myBooks.map((book) => (
+        <div className="card" key={book.id}>
+          <div className="card-body">
+            <div className="container">
+              <div className="row">
+                <div className="col">
+                  <p>Action</p>
+                  <p>{book.title}</p>
+                  <p>{book.author}</p>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col">
+                        Comments
+                      </div>
+                      <div className="col">
+                        <button type="button" onClick={removeBookBtn} id={book.id} className="btn btn-primary">Remove</button>
+                      </div>
+                      <div className="col">
+                        Edit
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col">
+                  64% Completed
+                </div>
+                <div className="col">
+                  <p>Current chapter</p>
+                  <p>Chapter 17</p>
+                  <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className="container align-middle py-5">
@@ -40,40 +73,7 @@ const Books = () => {
             </div>
           </div>
           <div className="card-body">
-          <div className="card">
-        <div className="card-body">
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <p>Action</p>
-                <p>{title}</p>
-                <p>{author}</p>
-                <div className="container">
-                  <div className="row">
-                    <div className="col">
-                        Comments
-                    </div>
-                    <div className="col">
-                      <button type="button" onClick={removeBookBtn} id={id} className="btn btn-primary">Remove</button>
-                    </div>
-                    <div className="col">
-                        Edit
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                64% Completed
-              </div>
-              <div className="col">
-                <p>Current chapter</p>
-                <p>Chapter 17</p>
-                <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <AddBookCard />
           </div>
         </div>
       </div>

@@ -8,8 +8,8 @@ function ButtonAdd() {
   const submitBookToStore = () => {
     const newBook = {
       id: uuidv4(),
-      title: 'hi',
-      author: 'yes',
+      title: 'New title',
+      author: 'New Author',
     };
     dispatch(addBook(newBook));
   };
