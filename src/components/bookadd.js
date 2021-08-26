@@ -10,7 +10,7 @@ function ButtonAdd() {
   const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('Genre 1');
 
-  const submitBookToStore = (element) => {
+  const submitBookToStore = async (element) => {
     element.preventDefault();
     const newBook = {
       id: uuidv4(),

@@ -1,12 +1,25 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeBook } from '../redux/books/books';
 
 const Books = () => {
   const myBooks = useSelector((state) => state.bookRedux);
-
   const dispatch = useDispatch();
+  // const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/JRvgmQWxBSuTgawpguvn/books';
+
+  // const fetchBooks = async () => {
+  //   const booksFecth = await fetch(url);
+  //   const booksData = await booksFecth.json();
+  //   console.log('booksData: ', booksData);
+  //   return booksData;
+  // };
+
+  // const booksObject = fetchBooks();
+  // const booksAPI = Array.from(booksObject);
+
+  // console.log('booksAPI: ', booksAPI);
 
   const removeBookBtn = (e) => {
     dispatch(removeBook(e.target));
@@ -69,7 +82,7 @@ const Books = () => {
   );
 
   return (
-    <div className="container align-middle pt-5">
+    <div className="container align-middle p-5">
       <div className="container my-5 align-middle" id="formContainer">
         <div className="card">
           <div className="card-header">
