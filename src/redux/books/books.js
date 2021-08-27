@@ -44,15 +44,20 @@ const reducer = (state = initialState, action) => {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
+      }).then(() => {
+        window.location.reload();
       });
       return state;
     case REMOVE_BOOK: {
       console.log('id', action.payload.id);
       fetch(`${url}${action.payload.id}`, {
+        cash: 'reload',
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
+      }).then(() => {
+        window.location.reload();
       });
       return state;
     }
