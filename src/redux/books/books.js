@@ -49,7 +49,6 @@ const reducer = (state = initialState, action) => {
       });
       return state;
     case REMOVE_BOOK: {
-      console.log('id', action.payload.id);
       fetch(`${url}${action.payload.id}`, {
         cash: 'reload',
         method: 'DELETE',
@@ -62,7 +61,6 @@ const reducer = (state = initialState, action) => {
       return state;
     }
     case SUCCESS_BOOK: {
-      console.log('success: ', action.payload);
       return Object.keys(action.payload).map((key) => ({
         id: key,
         title: action.payload[key][0].title,
