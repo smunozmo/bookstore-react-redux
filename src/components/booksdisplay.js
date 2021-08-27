@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeBook, successBook } from '../redux/books/books';
+import ButtonAdd from './bookadd';
 
 const Books = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Books = () => {
         };
 
         return (
-          <div className="card" key={book.id}>
+          <div className="card my-3 mx-5" key={book.id}>
             <div className="card-body">
               <div className="container">
                 <div className="row">
@@ -58,9 +59,9 @@ const Books = () => {
                       %
                     </p>
                     <p className="completed">Completed</p>
-                    <div className="progress progressBar">
-                      <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-label="bar" style={barstyle} />
-                    </div>
+                  <div className="progress progressBar">
+                    <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-label="bar" style={barstyle} />
+                  </div>
                   </div>
                   <div className="col">
                     <p className="bookGenre text-secondary currentChapter">CURRENT CHAPTER</p>
@@ -80,10 +81,10 @@ const Books = () => {
   );
 
   return (
-    <div className="container align-middle p-1">
+    <div className="container align-middle p-5 my-5">
       <div className="container my-5 align-middle" id="formContainer">
-        <div className="card">
-          <div className="card-header">
+        <div className="card shadow-lg rounded">
+          <div className="card-header cardHeader">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-3 mainTitle">
@@ -98,9 +99,10 @@ const Books = () => {
               </div>
             </div>
           </div>
-          <div className="card-body">
+          <div className="card-body cardBody">
             <AddBookCard />
           </div>
+            <ButtonAdd />
         </div>
       </div>
     </div>

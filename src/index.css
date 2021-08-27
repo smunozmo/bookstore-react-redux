@@ -1,4 +1,15 @@
 /* css */
+body {
+  background-color: #F4F4F9;
+}
+
+.cardHeader {
+  background-color: #FEFEFF;
+}
+
+.cardBody {
+  background-color: #FAFBFB;
+}
 
 .links {
   font-size: 12px;
