@@ -32,7 +32,7 @@ function ButtonAdd() {
     <div className="container mx-auto mb-5">
       <div className="container mx-auto align-middle">
         <form onSubmit={submitBookToStore} className="mx-auto">
-          ADD NEW BOOK
+          <p className="newBookTitle">ADD NEW BOOK</p>
           <div className="row">
             <div className="col-sm-4">
               <input
@@ -67,7 +67,7 @@ function ButtonAdd() {
               </select>
             </div>
             <div className="col-sm-2">
-              <button type="submit" className="btn btn-primary buttonAdd">ADD BOOK</button>
+              <button type="submit" className="btn btn-info buttonAdd">ADD BOOK</button>
             </div>
           </div>
         </form>

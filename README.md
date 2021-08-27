@@ -3,7 +3,7 @@
 > Welcome to my Bookstore React Redux App project, this is an interactive app excercise from Microverse.
 
 
-<!-- ![screenshot](./screenshot.png) -->
+![screenshot](./screenshot.png)
 
 ## Built With
 

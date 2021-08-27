@@ -35,11 +35,11 @@ const Books = () => {
               <div className="container">
                 <div className="row">
                   <div className="col">
-                    <p className="fs-6 text-secondary">{book.genre}</p>
-                    <p className="fs-5 fw-bold">{book.title}</p>
-                    <p className="fs-5 text-primary">{book.author}</p>
+                    <p className="text-secondary bookGenre">{book.genre}</p>
+                    <p className="fw-bold bookTitle">{book.title}</p>
+                    <p className="bookAuthor">{book.author}</p>
                     <div className="container p-0">
-                      <div className="row">
+                      <div className="row actionsLinks justify-content-start">
                         <div className="col">
                           Comments
                         </div>
@@ -53,20 +53,22 @@ const Books = () => {
                     </div>
                   </div>
                   <div className="col">
-                    {randomNum}
-                    % Completed
-                    <div className="progress">
-                      <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="bar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={barstyle} />
+                    <p className="fs-4">
+                      {randomNum}
+                      %
+                    </p>
+                    <p className="completed">Completed</p>
+                    <div className="progress progressBar">
+                      <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-label="bar" style={barstyle} />
                     </div>
                   </div>
                   <div className="col">
-                    <p>Current chapter</p>
-                    <p>
+                    <p className="bookGenre text-secondary currentChapter">CURRENT CHAPTER</p>
+                    <p className="chapter">
                       Chapter&nbsp;
-
                       {Math.floor(Math.random() * 100)}
                     </p>
-                    <button type="button" className="btn btn-primary">UPDATE PROGRESS</button>
+                    <button type="button" className="btn btn-info btn-sm buttonUpdate">UPDATE PROGRESS</button>
                   </div>
                 </div>
               </div>
@@ -78,19 +80,19 @@ const Books = () => {
   );
 
   return (
-    <div className="container align-middle p-5">
+    <div className="container align-middle p-1">
       <div className="container my-5 align-middle" id="formContainer">
         <div className="card">
           <div className="card-header">
             <div className="container">
-              <div className="row">
-                <div className="col">
+              <div className="row align-items-center">
+                <div className="col-3 mainTitle">
                   Bookstore CMS
                 </div>
-                <div className="col">
+                <div className="col-2 text-center">
                   <Link className="links" to="/">BOOKS</Link>
                 </div>
-                <div className="col">
+                <div className="col-2">
                   <Link className="links" to="/categories">CATEGORIES</Link>
                 </div>
               </div>
