@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeBook } from '../redux/books/books';
+import { removeBook, successBook } from '../redux/books/books';
 
 const Books = () => {
-  const myBooks = useSelector((state) => state.bookRedux);
-
   const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchBooks = async () => {
+      const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/JRvgmQWxBSuTgawpguvn/books';
+      const booksFecth = await fetch(url);
+      const booksData = await booksFecth.json();
+      return dispatch(successBook(booksData));
+    };
+    fetchBooks();
+  }, []);
+
+  const myBooks = useSelector((state) => state.bookRedux);
 
   const removeBookBtn = (e) => {
     dispatch(removeBook(e.target));
@@ -69,7 +78,7 @@ const Books = () => {
   );
 
   return (
-    <div className="container align-middle pt-5">
+    <div className="container align-middle p-5">
       <div className="container my-5 align-middle" id="formContainer">
         <div className="card">
           <div className="card-header">
