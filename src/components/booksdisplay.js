@@ -59,9 +59,9 @@ const Books = () => {
                       %
                     </p>
                     <p className="completed">Completed</p>
-                  <div className="progress progressBar">
-                    <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-label="bar" style={barstyle} />
-                  </div>
+                    <div className="progress progressBar">
+                      <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-label="bar" style={barstyle} />
+                    </div>
                   </div>
                   <div className="col">
                     <p className="bookGenre text-secondary currentChapter">CURRENT CHAPTER</p>
@@ -102,7 +102,7 @@ const Books = () => {
           <div className="card-body cardBody">
             <AddBookCard />
           </div>
-            <ButtonAdd />
+          <ButtonAdd />
         </div>
       </div>
     </div>
