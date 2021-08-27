@@ -1,7 +1,8 @@
 const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
 const GET_BOOK = 'GET_BOOK';
-export const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/JRvgmQWxBSuTgawpguvn/books';
+const SUCCESS_BOOK = 'SUCCESS_BOOK';
+export const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/JRvgmQWxBSuTgawpguvn/books/';
 
 const initialState = [];
 
@@ -20,6 +21,16 @@ export const getBook = (payload) => ({
   payload,
 });
 
+export const successBook = (payload) => ({
+  type: SUCCESS_BOOK,
+  payload,
+});
+
+// const reload = async () => {
+//   const time = setInterval(window.location.reload(), 3000);
+//   return time;
+// };
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
@@ -36,6 +47,7 @@ const reducer = (state = initialState, action) => {
       });
       return state;
     case REMOVE_BOOK: {
+      console.log('id', action.payload.id);
       fetch(`${url}${action.payload.id}`, {
         method: 'DELETE',
         headers: {
@@ -43,6 +55,14 @@ const reducer = (state = initialState, action) => {
         },
       });
       return state;
+    }
+    case SUCCESS_BOOK: {
+      console.log('success: ', action.payload);
+      return Object.keys(action.payload).map((key) => ({
+        id: key,
+        title: action.payload[key][0].title,
+        genre: action.payload[key][0].category,
+      }));
     }
     default:
       return state;
