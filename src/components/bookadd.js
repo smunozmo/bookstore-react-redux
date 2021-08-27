@@ -8,7 +8,7 @@ function ButtonAdd() {
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('Genre 1');
+  const [genre, setGenre] = useState('Happy');
 
   const submitBookToStore = async (element) => {
     element.preventDefault();
@@ -21,7 +21,7 @@ function ButtonAdd() {
     dispatch(addBook(newBook));
     setTitle('');
     setAuthor('');
-    setGenre('Genre 1');
+    setGenre('Happy');
   };
 
   const onTitleChanged = (element) => setTitle(element.target.value);
@@ -60,9 +60,10 @@ function ButtonAdd() {
             </div>
             <div className="col-sm-2">
               <select name="genre" className="form-select" id="genre" value={genre} onChange={onGenreChanged}>
-                <option value="Genre 1">Genre 1</option>
-                <option value="Genre 2">Genre 2</option>
-                <option value="Genre 3">Genre 3</option>
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Boring">Boring</option>
+                <option value="Interesting">Interesting</option>
               </select>
             </div>
             <div className="col-sm-2">

@@ -1,8 +1,9 @@
+const { uniqueNamesGenerator, starWars } = require('unique-names-generator');
+
 const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
-const GET_BOOK = 'GET_BOOK';
 const SUCCESS_BOOK = 'SUCCESS_BOOK';
-export const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/JRvgmQWxBSuTgawpguvn/books/';
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/JRvgmQWxBSuTgawpguvn/books/';
 
 const initialState = [];
 
@@ -16,20 +17,10 @@ export const removeBook = (payload) => ({
   payload,
 });
 
-export const getBook = (payload) => ({
-  type: GET_BOOK,
-  payload,
-});
-
 export const successBook = (payload) => ({
   type: SUCCESS_BOOK,
   payload,
 });
-
-// const reload = async () => {
-//   const time = setInterval(window.location.reload(), 3000);
-//   return time;
-// };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -64,6 +55,7 @@ const reducer = (state = initialState, action) => {
       return Object.keys(action.payload).map((key) => ({
         id: key,
         title: action.payload[key][0].title,
+        author: uniqueNamesGenerator({ dictionaries: [starWars] }),
         genre: action.payload[key][0].category,
       }));
     }
